@@ -1,0 +1,43 @@
+    p {
+        font-size: 10pt;
+        line-height: 24pt
+    }
+
+    /* 방문하고 난 후 나타나는 색상 */
+    a:visited{ 
+        color: black;
+        text-decoration: none;
+    }
+
+    h3 {
+        color: red;
+        background-color: #90ff90;x
+        margin-left: 60px;
+        margin-right: 60px
+    }
+
+    h3:after {
+        content: " (ⓒsblim)";
+        font-size: 10pt;
+    }
+
+    p {
+        background-color: #ffff80;
+        padding: 10px;
+        border: medium dotted red
+    }
+
+    #next {
+        line-height: 2pt;
+        margin-left: 30%;
+        padding: 8px;
+        border: 4px double blue
+    }
+
+    strong,
+    .red1 {
+        background-color: silver;
+        margin: 10px;
+        padding: 6px;
+        border: 1px solid black
+    }
