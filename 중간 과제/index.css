@@ -1,0 +1,119 @@
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    margin: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 80%;
+    min-width: 840px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+thead th {
+    background-color: #fce4ec;
+}
+
+thead th[data-col-id="mon"] {
+    background-color: #fce4ec;
+}
+
+thead th[data-col-id="tue"] {
+    background-color: #f9d1df;
+}
+
+thead th[data-col-id="wed"] {
+    background-color: #f6b6cb;
+}
+
+thead th[data-col-id="thu"] {
+    background-color: #f39bb7;
+}
+
+thead th[data-col-id="fri"] {
+    background-color: #f081a4;
+}
+
+.meal-type {
+    background-color: #f3f3f3;
+    font-weight: bold;
+}
+
+.course-type {
+    background-color: #e3f2fd;
+    font-weight: bold;
+}
+
+td {
+    line-height: 1.6;
+}
+
+.today-BaekBan {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+thead th[data-col-id] {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+thead th[data-col-id]:hover {
+    background-color: #f8bbd0;
+}
+
+tr td[data-col-id] span:not(.today-BaekBan):hover {
+    background-color: yellow;
+    cursor: pointer;
+    color: black;
+}
+
+tr td[data-col-id] span:not(.today-BaekBan) {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-container{
+    text-align: end;
+    width: 80%;
+    min-width: 840px;
+    margin: 15px auto;
+}
+
+.td-white {
+    color: white;
+    
+}
+
+.selected-menu {
+    background-color: yellow;
+    color: black;
+}
+
+.col-hidden {
+    visibility: collapse;
+}
+

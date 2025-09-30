@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주간 식단표 (토글 기능)</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <h1>주간 식단표</h1>
+    <p>요일(월~금) 헤더를 클릭하여 식단을 숨기거나 펼쳐보세요.</p>
+    <p>메뉴를 클릭해서 메모 하세요</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">구분</th>
+                <th data-col-id="mon">09/22 (월)</th>
+                <th data-col-id="tue">09/23 (화)</th>
+                <th data-col-id="wed">09/24 (수)</th>
+                <th data-col-id="thu">09/25 (목)</th>
+                <th data-col-id="fri">09/26 (금)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="meal-type">조식</td>
+                <td class="course-type">천원의 아침밥<br> (A코너)</td>
+                <td data-col-id="mon">
+                    <span>백미밥&부대찌개</span><br>
+                    <span>깍두기/매실차</span>
+                </td>
+                <td data-col-id="tue">
+                    <span>양송이오징어덮밥</span><br>
+                    <span>매콤콩나물국</span>
+                </td>
+                <td data-col-id="wed">
+                    <span>베이컨김치볶음밥</span><br>
+                    <span>조랭이떡미역국</span>
+                </td>
+                <td data-col-id="thu">
+                    <span>카레짜장돈까스/장국</span><br>
+                    <span>매콤국물떡볶이</span></td>
+                <td data-col-id="fri">
+                    <span>브리또/얼큰육개장</span><br>
+                    <span>쏘야볶음</span>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="meal-type">중식</td>
+                <td class="course-type">B코너</td>
+                <td data-col-id="mon">
+                    <span>등심돈까스</span><br>
+                    <span>고구마돈까스</span><br>
+                    <span>생선까스</span><br>
+                    <span>체육덮밥</span>
+                </td>
+                <td data-col-id="tue">
+                    <span>등심돈까스</span><br>
+                    <span>치즈돈까스</span><br>
+                    <span>치킨까스</span><br>
+                    <span>체육덮밥</span>
+                </td>
+                <td data-col-id="wed">
+                    <span>등심돈까스</span><br>
+                    <span>고구마돈까스</span><br>
+                    <span>생선까스/체육덮밥</span><br>
+                    <span>치킨마요덮밥</span>
+                </td>
+                <td data-col-id="thu">
+                    <span>등심돈까스</span><br>
+                    <span>치즈돈까스</span><br>
+                    <span>치킨까스</span><br>
+                    <span>체육덮밥</span>
+                </td>
+                <td data-col-id="fri">
+                    <span>등심돈까스</span><br>
+                    <span>고구마돈까스</span><br>
+                    <span>치킨/생선까스</span><br>
+                    <span>체육덮밥</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="course-type">C코너</td>
+                <td data-col-id="mon">
+                    <span class="today-BaekBan">&lt;오늘의백반&gt;</span><br>
+                    <span>소고기하이라이스</span><br>
+                    <span>맑은콩나물국</span><br>
+                    <span>두반장가지볶음</span><br>
+                    <span>스크램블에그</span><br>
+                    <span>포기김치</span>
+                </td>
+                <td data-col-id="tue">
+                    <span class="today-BaekBan">&lt;오늘의백반&gt;</span><br>
+                    <span>기장밥</span><br>
+                    <span>버섯육개장</span><br>
+                    <span>애플파이춘권</span><br>
+                    <span>부추양파겉절이</span><br>
+                    <span>열무김치</span>
+                </td>
+                <td data-col-id="wed">
+                    <span class="today-BaekBan">&lt;오늘의백반&gt;</span><br>
+                    <span>현미밥</span><br>
+                    <span>시금치국</span><br>
+                    <span>고추장돈불고기</span><br>
+                    <span>감자채햄볶음</span><br>
+                    <span>마늘쫑무침</span></td>
+                <td data-col-id="thu">
+                    <span class="today-BaekBan">&lt;오늘의백반&gt;</span><br>
+                    <span>찰흑미밥</span><br>
+                    <span>콩비지미역국</span><br>
+                    <span>맛조림장조림수육</span><br>
+                    <span>실곤약야채무침</span><br>
+                    <span>깍두기</span></td>
+                <td data-col-id="fri">
+                    <span class="today-BaekBan">&lt;오늘의백반&gt;</span><br>
+                    <span>보리밥</span><br>
+                    <span>얼큰이된장국</span><br>
+                    <span>김치제육볶음</span><br>
+                    <span>두부구이</span><br>
+                    <span>짜사이무침</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-container">
+        <button>안보이게</button>
+    </div>
+
+    <script>
+        const headers = document.querySelectorAll('thead th[data-col-id]');
+
+        headers.forEach(header => {
+            header.addEventListener('click', () => {
+                const colId = header.dataset.colId;
+                const cellsToToggle = document.querySelectorAll(`td[data-col-id="${colId}"]`);
+                cellsToToggle.forEach(cell => {
+                    cell.classList.toggle('col-hidden');
+                });
+            });
+        });
+
+        const menuDivs = document.querySelectorAll('td[data-col-id] span:not(.today-BaekBan)')
+
+        menuDivs.forEach(menuDiv => {
+            menuDiv.addEventListener('click', (e) => {
+                e.target.classList.toggle('selected-menu');
+            })
+        })
+
+        let state = true
+        const btn = document.querySelector('button')
+
+        btn.addEventListener('click', (e) => {
+            menuDivs.forEach(menuDiv => {
+                menuDiv.classList.toggle('td-white');
+            });
+
+            state = !state;
+            if (state) {
+                btn.innerHTML = '안보이게';
+            } else {
+                btn.innerHTML = '전체보기';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
